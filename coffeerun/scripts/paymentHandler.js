@@ -3,11 +3,11 @@
     'use strict';
     var App = window.App;
     var FormHandler = App.FormHandler;
-    
+
     var FORM_SELECTOR = '[data-payment="form"]';
     var formHandler = new FormHandler(FORM_SELECTOR);
 
-    formHandler.addSubmitHandler(function(data) {
+    formHandler.addSubmitHandler(function (data) {
         var modal = document.getElementById("myModal");
 
         var title = data.title;

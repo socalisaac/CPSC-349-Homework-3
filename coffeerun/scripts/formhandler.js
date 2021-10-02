@@ -7,7 +7,9 @@
         constructor(selector) {
             console.log('In FormHandler constructor...');
 
-            if (!selector) { throw new Error('No selector provided'); }
+            if (!selector) {
+                throw new Error('No selector provided');
+            }
 
             this.$formElement = $(selector);
             if (this.$formElement.length === 0) {
@@ -18,23 +20,23 @@
             console.log('Setting submit handler for form');
             // TODO: 
             this.$formElement.on('submit', function (event) {
-                event.preventDefault();    
+                event.preventDefault();
 
                 // var data = $(this).serializeArray();
                 var data = {};
-                $(this).serializeArray().forEach(function (item) { 
+                $(this).serializeArray().forEach(function (item) {
                     data[item.name] = item.value;
                     console.log(item.name + ' is ' + item.value);
                 });
                 console.log(data);
-                fn(data);         // truck createOrder is currently fn
+                fn(data); // truck createOrder is currently fn
                 this.reset();
                 this.elements[0].focus();
             });
         }
     }
 
-   
+
     App.FormHandler = FormHandler;
     window.App = App;
-  })(window);
+})(window);
